@@ -361,6 +361,8 @@ setTimeout(() => loader(), 1000);
   var dealer = window[dealerName] = window[dealerName] || [];
   dealer.push(['setDefaultClientKey', 'e96325b5-03aa-4fb8-a23b-014be056f114']);
   dealer.push(['setDefaultRegionId', 10738]);
+  /* Передача данных о продажах в наш счётчик Метрики (заработает, когда менеджер Афиши включит на своей стороне) */
+  dealer.push(['setYandexMetrika', 110472152]);
 
   /* Загрузка */
   (function () {

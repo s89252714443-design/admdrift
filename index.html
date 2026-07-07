@@ -458,4 +458,6 @@ setTimeout(() => loader(), 1000);
   })();
 </script>
 <!-- ================= /Модалка для фото ================= -->
+<!-- Фикс якорей меню: name-якоря дублируются в десктоп/моб версиях; ведём клик к ВИДИМОЙ секции -->
+<script>(function(){document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="#"]'):null;if(!a)return;if(a.hasAttribute("data-img-modal"))return;var h=a.getAttribute("href");if(!h||h==="#")return;var nm=h.slice(1);var list=document.getElementsByName(nm),vis=null,i;for(i=0;i<list.length;i++){if(list[i].offsetParent!==null){vis=list[i];break;}}if(!vis){var byId=document.getElementById(nm);if(byId&&byId.offsetParent!==null)vis=byId;}if(vis){e.preventDefault();vis.scrollIntoView({behavior:"smooth",block:"start"});}},false);})();</script>
 </body></html>

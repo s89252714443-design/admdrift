@@ -458,4 +458,6 @@ setTimeout(() => loader(), 1000);
   })();
 </script>
 <!-- ================= /Модалка для фото ================= -->
+<!-- Оптимизация фоновых видео: играют только видимые на экране, остальные на паузе (меньше нагрузка, нет тормозов) -->
+<script>(function(){if(!("IntersectionObserver" in window))return;var io=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++){var v=es[i].target;if(es[i].isIntersecting){var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){})}else{try{v.pause()}catch(_){}}}},{rootMargin:"200px",threshold:0.01});function scan(){var l=document.querySelectorAll("video:not([data-vio])");for(var i=0;i<l.length;i++){l[i].setAttribute("data-vio","1");io.observe(l[i])}}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",scan)}else{scan()}setTimeout(scan,3000);setTimeout(scan,6000);})();</script>
 </body></html>
